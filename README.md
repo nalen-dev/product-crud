@@ -1,6 +1,6 @@
 ## Deployed
 
-Website is deployed in Vercel
+Website is deployed using Vercel
 
 Open [https://product-crud-blond.vercel.app/] to explore
 
