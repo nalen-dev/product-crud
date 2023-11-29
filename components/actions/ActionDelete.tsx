@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 
 import { Loader, Trash2 } from "lucide-react";
 import { Button, Modal, Toast } from "react-bootstrap";
@@ -20,10 +22,13 @@ const ActionDelete = ({ product }: ActionsDeleteProps) => {
   const handleShow = () => setShow(true);
   const toggleShowB = () => setShowB(!showB);
 
+  const host = window.location.host;
+
   const handleDelete = async () => {
     try {
       setIsLoading(true);
-      await axios.delete(`http://localhost:3000/api/products/${product.id}`);
+      console.log(host);
+      await axios.delete(`http://${host}/api/products/${product.id}`);
       setIsLoading(false);
       setShow(false);
       setShowB(true);

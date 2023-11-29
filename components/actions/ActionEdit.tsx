@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 
 import { Loader, Pencil } from "lucide-react";
 import { Button, Form, Modal, Toast } from "react-bootstrap";
@@ -24,13 +26,15 @@ const ActionEdit = ({ product }: ActionsEditProps) => {
     });
   };
 
+  const host = window.location.host;
+
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsLoading(true);
 
     try {
-      await axios.put(`http://localhost:3000/api/products/${product.id}`, {
+      await axios.put(`http://${host}/api/products/${product.id}`, {
         data,
       });
 

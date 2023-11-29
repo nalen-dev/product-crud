@@ -2,10 +2,8 @@
 
 import axios from "axios";
 import { Loader } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal, Form, Col, Row, Toast } from "react-bootstrap";
-
-import absoluteUrl from "next-absolute-url";
 
 const AddItem = () => {
   const [show, setShow] = useState(false);
@@ -23,11 +21,17 @@ const AddItem = () => {
     });
   };
 
+  let host: string;
+
+  useEffect(() => {
+    host = window.location.host;
+  }, []);
+
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await axios.post("http://localhost:3000/api/products", {
+      await axios.post(`http://${host}/api/products`, {
         data,
       });
 
