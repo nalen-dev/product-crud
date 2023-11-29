@@ -26,7 +26,7 @@ const ActionEdit = ({ product }: ActionsEditProps) => {
     });
   };
 
-  const host = window.location.host;
+  const origin = window.location.origin;
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const ActionEdit = ({ product }: ActionsEditProps) => {
     setIsLoading(true);
 
     try {
-      await axios.put(`http://${host}/api/products/${product.id}`, {
+      await axios.put(`${origin}/api/products/${product.id}`, {
         data,
       });
 

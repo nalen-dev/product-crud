@@ -22,13 +22,12 @@ const ActionDelete = ({ product }: ActionsDeleteProps) => {
   const handleShow = () => setShow(true);
   const toggleShowB = () => setShowB(!showB);
 
-  const host = window.location.host;
+  const origin = window.location.origin;
 
   const handleDelete = async () => {
     try {
       setIsLoading(true);
-      console.log(host);
-      await axios.delete(`http://${host}/api/products/${product.id}`);
+      await axios.delete(`${origin}/api/products/${product.id}`);
       setIsLoading(false);
       setShow(false);
       setShowB(true);

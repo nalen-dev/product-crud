@@ -21,17 +21,13 @@ const AddItem = () => {
     });
   };
 
-  let host: string;
-
-  useEffect(() => {
-    host = window.location.host;
-  }, []);
+  const origin = window.location.origin;
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await axios.post(`http://${host}/api/products`, {
+      await axios.post(`${origin}/api/products`, {
         data,
       });
 

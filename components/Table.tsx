@@ -10,12 +10,12 @@ import axios from "axios";
 function MyTable() {
   const [products, setProducts] = useState<product[] | null>(null);
 
-  let host: string;
+  let origin: string;
 
   useEffect(() => {
-    host = window.location.host;
+    origin = window.location.origin;
     const fetchData = async () => {
-      const response = await axios.get(`http://${host}/api/products`);
+      const response = await axios.get(`${origin}/api/products`);
       setProducts(response.data);
     };
     fetchData();
