@@ -5,6 +5,8 @@ import { Loader } from "lucide-react";
 import React, { useState } from "react";
 import { Button, Modal, Form, Col, Row, Toast } from "react-bootstrap";
 
+import absoluteUrl from "next-absolute-url";
+
 const AddItem = () => {
   const [show, setShow] = useState(false);
   const [data, setData] = useState({});
