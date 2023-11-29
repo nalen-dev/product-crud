@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal, Form, Col, Row, Toast } from "react-bootstrap";
 
 const AddItem = () => {
-  let origin: string;
+  let origin: string = "";
 
   useEffect(() => {
     origin = window.location.origin;
@@ -31,6 +31,7 @@ const AddItem = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
+      console.log(origin);
       await axios.post(`${origin}/api/products`, {
         data,
       });
