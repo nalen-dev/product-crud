@@ -6,6 +6,12 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal, Form, Col, Row, Toast } from "react-bootstrap";
 
 const AddItem = () => {
+  let origin: string;
+
+  useEffect(() => {
+    origin = window.location.origin;
+  }, []);
+
   const [show, setShow] = useState(false);
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -20,8 +26,6 @@ const AddItem = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  const origin = window.location.origin;
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
